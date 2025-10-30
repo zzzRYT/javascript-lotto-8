@@ -1,12 +1,12 @@
-import Lotto from './domain/Lotto';
+import LottoProcess from './controller/LottoProcess.js';
 
 class App {
   constructor() {
-    this.lotto = new Lotto();
+    this.process = new LottoProcess();
   }
 
   async run() {
-    await this.lotto.start();
+    await this.process.start();
   }
 }
 
