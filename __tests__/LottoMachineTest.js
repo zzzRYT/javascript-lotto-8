@@ -1,5 +1,6 @@
 import { MissionUtils } from '@woowacourse/mission-utils';
-import LottoMachine from '../src/domain/LottoMachine';
+
+import LottoMachine from '../src/domain/LottoMachine.js';
 
 jest.mock('@woowacourse/mission-utils');
 

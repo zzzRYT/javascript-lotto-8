@@ -1,13 +1,13 @@
-import LottoMachine from '../domain/LottoMachine.js';
+import Store from '../domain/Store.js';
 
 class LottoProcess {
   constructor() {
-    this.lottoMachine = new LottoMachine();
+    this.store = new Store();
   }
 
   async start() {
     try {
-      this.lottoMachine.getLottery(4);
+      this.store.purchaseLotto(8000);
     } catch (error) {
       return error;
     }
