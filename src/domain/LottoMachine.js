@@ -1,4 +1,4 @@
-import { Console, MissionUtils } from '@woowacourse/mission-utils';
+import { MissionUtils } from '@woowacourse/mission-utils';
 
 class LottoMachine {
   getLottery(count) {
