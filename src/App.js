@@ -1,12 +1,13 @@
+import Input from './view/Input.js';
+import Output from './view/Output.js';
 import LottoProcess from './controller/LottoProcess.js';
 
 class App {
-  constructor() {
-    this.process = new LottoProcess();
-  }
+  constructor() {}
 
   async run() {
-    await this.process.start();
+    const process = new LottoProcess();
+    await process.start();
   }
 }
 

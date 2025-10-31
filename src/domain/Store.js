@@ -2,7 +2,6 @@ import { Console } from '@woowacourse/mission-utils';
 
 import LottoMachine from './LottoMachine.js';
 
-import { isPositiveInteger } from '../utils.js';
 import { ERROR, LOTTO } from '../constants.js';
 
 class Store {
@@ -12,7 +11,6 @@ class Store {
   }
 
   purchaseLotto(cost) {
-    validationStore().moneyType(cost);
     validationStore().minCost(cost);
     const chance = this.#changeChance(cost);
     const lottos = this.#lottoMachine.getLottery(chance);
@@ -26,19 +24,13 @@ class Store {
 }
 
 function validationStore() {
-  const moneyType = (cost) => {
-    if (!isPositiveInteger(cost)) {
-      throw new Error(ERROR.STORE.MONEY_TYPE);
-    }
-  };
-
   const minCost = (cost) => {
     if (cost < LOTTO.COST) {
       throw new Error(ERROR.STORE.MIN_COST);
     }
   };
 
-  return { moneyType, minCost };
+  return { minCost };
 }
 
 export default Store;

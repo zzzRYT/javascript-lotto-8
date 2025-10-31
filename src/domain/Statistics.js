@@ -14,6 +14,10 @@ class Statistics {
     return this.#winnerGroup;
   }
 
+  getWinnerGroup() {
+    return this.#winnerGroup;
+  }
+
   findMatch(lottos) {
     lottos.forEach((lotto) => {
       const count = this.getMatchNumbersCount(lotto);

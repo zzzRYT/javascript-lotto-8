@@ -1,3 +1,5 @@
+import { ERROR } from '../constants.js';
+
 class Lotto {
   #numbers;
 
@@ -6,6 +8,10 @@ class Lotto {
     validationLotto().duplicated(numbers);
     validationLotto().range(numbers);
     this.#numbers = numbers;
+  }
+
+  getLotto() {
+    return this.#numbers;
   }
 
   getBounce(num) {
@@ -19,21 +25,21 @@ class Lotto {
 function validationLotto() {
   const length = (numbers) => {
     if (numbers.length !== 6) {
-      throw new Error('[ERROR] : 로또 번호는 6개여야 합니다.');
+      throw new Error(ERROR.LOTTO.LENGTH);
     }
   };
 
   const duplicated = (numbers) => {
     const curLotto = new Set([...numbers]);
     if (curLotto.size !== numbers.length) {
-      throw new Error('[ERROR] : 로또 번호에 중복이 있습니다.');
+      throw new Error(ERROR.LOTTO.DUPLICATE);
     }
   };
 
   const range = (numbers) => {
     numbers.forEach((number) => {
       if (number < 1 || number > 45) {
-        throw new Error('[ERROR] : 로또 번호는 1 ~ 45사이의 수 입니다.');
+        throw new Error(ERROR.LOTTO.RANGE);
       }
     });
   };
