@@ -36,7 +36,8 @@ class Output {
   }
 
   static totalYield(percent) {
-    Console.print(`총 수익률은 ${percent}%입니다.`);
+    const generateUnit = generatedMoneyUnit(percent);
+    Console.print(`총 수익률은 ${generateUnit}%입니다.`);
   }
 
   static newLine() {

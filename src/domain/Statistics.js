@@ -43,8 +43,8 @@ class Statistics {
     for (const [to, count] of this.#winningGroup) {
       totalPrize += WINNER.PRIZE[WINNER.RANK[to]] * count;
     }
-    const LottoYield = (totalPrize / purchase) * 100;
-    return LottoYield.toFixed(1);
+    const lottoYield = (totalPrize / purchase) * 100;
+    return lottoYield;
   }
 
   #setWinningGroup(count) {

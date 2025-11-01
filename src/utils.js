@@ -13,7 +13,8 @@ export const isPositiveInteger = (num) => {
  * @returns string
  */
 export const generatedMoneyUnit = (num) => {
+  const trimmed = Math.floor(num * 10) / 10;
   return new Intl.NumberFormat('ko-KR', {
     currency: 'krw',
-  }).format(num);
+  }).format(trimmed);
 };

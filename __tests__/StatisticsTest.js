@@ -61,7 +61,7 @@ describe('Statistics 클래스 테스트', () => {
         [1, 2, 3, 4, 5, 6],
         [1, 2, 3, 8, 9, 10],
       ],
-      result: '100000250.0',
+      result: 100000250.0,
     },
     {
       lottos: [
@@ -74,7 +74,7 @@ describe('Statistics 클래스 테스트', () => {
         [2, 13, 22, 32, 38, 45],
         [1, 3, 5, 14, 22, 45],
       ],
-      result: '62.5',
+      result: 62.5,
     },
   ])('당첨돈 수에 따라서 수익률을 반환한다.', ({ lottos, result }) => {
     statistics.findMatch(lottos);
