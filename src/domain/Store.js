@@ -3,6 +3,7 @@ import { Console } from '@woowacourse/mission-utils';
 import LottoMachine from './LottoMachine.js';
 
 import { ERROR, LOTTO } from '../constants.js';
+import LottoProcess from '../controller/LottoProcess.js';
 
 class Store {
   #lottoMachine;
