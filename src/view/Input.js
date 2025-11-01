@@ -5,43 +5,28 @@ import { isPositiveInteger } from '../utils.js';
 class Input {
   static async userMoney() {
     const money = await Console.readLineAsync(INPUT.MONEY);
-    try {
-      validationCostInput().type(Number(money));
-      return Number(money);
-    } catch (error) {
-      Console.print(error.message);
-      return this.userMoney();
-    }
+    validationCostInput().type(Number(money));
+    return Number(money);
   }
 
   static async DrawWinningNumbers() {
-    try {
-      const winners = await Console.readLineAsync(INPUT.WINNER);
-      const winnerNumbers = winners.split(',').map((num) => Number(num.trim()));
-      validationWinnerInput().numbers(winnerNumbers);
-      return winnerNumbers;
-    } catch (error) {
-      Console.print(error.message);
-      return this.DrawWinningNumbers();
-    }
+    const winners = await Console.readLineAsync(INPUT.WINNER);
+    const winnerNumbers = winners.split(',').map((num) => Number(num.trim()));
+    validationWinnerInput().numbers(winnerNumbers);
+    return winnerNumbers;
   }
 
   static async DrawBounce() {
-    try {
-      const bounce = await Console.readLineAsync(INPUT.BOUNCE);
-      validationBounceInput().number(Number(bounce));
-      return Number(bounce);
-    } catch (error) {
-      Console.print(error.message);
-      return this.DrawBounce();
-    }
+    const bounce = await Console.readLineAsync(INPUT.BOUNCE);
+    validationBounceInput().number(Number(bounce));
+    return Number(bounce);
   }
 }
 
 function validationCostInput() {
   const type = (cost) => {
     if (!isPositiveInteger(cost)) {
-      throw new Error(ERROR.INPUT.COST_TYPE);
+      throw new Error(ERROR.INPUT.COST);
     }
   };
 

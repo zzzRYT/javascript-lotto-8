@@ -13,31 +13,35 @@ class LottoProcess {
   }
 
   async start() {
-    const money = await Input.userMoney();
-    const lottos = this.store.purchaseLotto(money);
+    try {
+      const money = await Input.userMoney();
+      Output.newLine();
+      const lottos = this.store.purchaseLotto(money);
 
-    Output.newLine();
+      Output.purchasedLottosCount(lottos);
+      Output.purchasedLottos(lottos);
+      Output.newLine();
 
-    Output.purchasedLottosCount(lottos);
-    Output.purchasedLottos(lottos);
+      const winners = await Input.DrawWinningNumbers();
+      Output.newLine();
 
-    Output.newLine();
+      const lotto = new Lotto(winners);
 
-    const winners = await Input.DrawWinningNumbers();
-    const lotto = new Lotto(winners);
+      const bounce = await Input.DrawBounce();
+      const addBounceLotto = lotto.getBounce(bounce);
 
-    Output.newLine();
+      const statistics = new Statistics(lotto.getLotto(), addBounceLotto);
+      Output.newLine();
+      statistics.findMatch(lottos);
+      const winningGroup = statistics.getWinningGroup();
+      const totalPrizePercent = statistics.getYield(money);
 
-    const bounce = await Input.DrawBounce();
-    const addBounceLotto = lotto.getBounce(bounce);
-    const statistics = new Statistics(lotto.getLotto(), addBounceLotto);
-    statistics.findMatch(lottos);
-    const winningGroup = statistics.getWinningGroup();
-    const totalPrizePercent = statistics.getYield(money);
-
-    Output.newLine();
-    Output.winningStatistics(winningGroup);
-    Output.totalYield(totalPrizePercent);
+      Output.winningStatistics(winningGroup);
+      Output.totalYield(totalPrizePercent);
+    } catch (error) {
+      Console.print(error.message);
+      this.start();
+    }
   }
 }
 
