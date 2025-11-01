@@ -33,9 +33,11 @@ class LottoProcess {
     const statistics = new Statistics(lotto.getLotto(), addBounceLotto);
     statistics.findMatch(lottos);
     const winningGroup = statistics.getWinningGroup();
+    const totalPrizePercent = statistics.getYield(money);
 
     Output.newLine();
     Output.winningStatistics(winningGroup);
+    Output.totalYield(totalPrizePercent);
   }
 }
 

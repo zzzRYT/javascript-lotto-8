@@ -12,12 +12,8 @@ class Output {
 
   static purchasedLottos(lottos) {
     lottos.forEach((lotto) => {
-      Console.print(lotto);
+      Console.print(`[${lotto.join(', ')}]`);
     });
-  }
-
-  static newLine() {
-    Console.print('');
   }
 
   static winningStatistics(winningGroup) {
@@ -37,6 +33,14 @@ class Output {
       return;
     }
     Console.print(`${to}개 일치 (${prize}원) - ${count}개`);
+  }
+
+  static totalYield(percent) {
+    Console.print(`총 수익률은 ${percent}%입니다.`);
+  }
+
+  static newLine() {
+    Console.print('');
   }
 }
 
