@@ -30,19 +30,28 @@ describe('Statistics 클래스 테스트', () => {
         [1, 2, 3, 8, 9, 10],
       ],
       result: [
-        [6, 1],
         [3, 1],
+        [4, 0],
+        [5, 0],
+        [7, 0],
+        [6, 1],
       ],
     },
     {
       description:
         '당점 중 5개 가 일치하고, 보너스가 일치하면 7(보너스)를 추가한다.',
       lottos: [[1, 2, 3, 4, 5, 7]],
-      result: [[7, 1]],
+      result: [
+        [3, 0],
+        [4, 0],
+        [5, 0],
+        [7, 1],
+        [6, 0],
+      ],
     },
   ])('$description', ({ lottos, result }) => {
     statistics.findMatch(lottos);
-    const match = statistics.getWinnerGroup();
+    const match = statistics.getWinningGroup();
     expect([...match]).toEqual(result);
   });
 
