@@ -7,7 +7,13 @@ class Statistics {
   constructor(winner, bonce) {
     this.#winner = winner;
     this.#bounce = bonce;
-    this.#winnerGroup = new Map();
+    this.#winnerGroup = new Map([
+      [3, 0],
+      [4, 0],
+      [5, 0],
+      [7, 0],
+      [6, 0],
+    ]);
   }
 
   getWinnerGroup() {
@@ -34,10 +40,6 @@ class Statistics {
       this.#winner.includes(number)
     );
     return matchNumbers.length;
-  }
-
-  getPrize(rank) {
-    return WINNER.PRIZE[WINNER.RANK[rank]];
   }
 
   #setWinnerGroup(count) {

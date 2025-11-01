@@ -14,7 +14,6 @@ class Store {
     validationStore().minCost(cost);
     const chance = this.#changeChance(cost);
     const lottos = this.#lottoMachine.getLottery(chance);
-    Console.print(lottos);
     return lottos;
   }
 

@@ -6,3 +6,14 @@
 export const isPositiveInteger = (num) => {
   return Number.isInteger(num) && Math.sign(num) === 1;
 };
+
+/**
+ * 숫자를 넘기면, KO에 맞는 통화 단위를 반환하는 유틸함수
+ * @param {number} num
+ * @returns string
+ */
+export const generatedMoneyUnit = (num) => {
+  return new Intl.NumberFormat('ko-KR', {
+    currency: 'krw',
+  }).format(num);
+};

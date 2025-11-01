@@ -8,6 +8,18 @@ export const INPUT = {
 };
 
 /**
+ * Output 클래스 관련 상수
+ */
+export const OUTPUT = {
+  PURCHASED: {
+    COUNT: '개를 구매했습니다.',
+  },
+  STATISTICS: {
+    TITLE: '당첨 통계\n---',
+  },
+};
+
+/**
  * Store 클래스 관련 상수
  */
 export const LOTTO = Object.freeze({
