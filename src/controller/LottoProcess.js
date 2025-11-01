@@ -32,7 +32,7 @@ class LottoProcess {
     const addBounceLotto = lotto.getBounce(bounce);
     const statistics = new Statistics(lotto.getLotto(), addBounceLotto);
     statistics.findMatch(lottos);
-    const winningGroup = statistics.getWinnerGroup();
+    const winningGroup = statistics.getWinningGroup();
 
     Output.newLine();
     Output.winningStatistics(winningGroup);

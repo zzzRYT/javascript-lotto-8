@@ -45,4 +45,30 @@ describe('Statistics 클래스 테스트', () => {
     const match = statistics.getWinnerGroup();
     expect([...match]).toEqual(result);
   });
+
+  test.each([
+    {
+      lottos: [
+        [1, 2, 3, 4, 5, 6],
+        [1, 2, 3, 8, 9, 10],
+      ],
+      result: '100000250.0',
+    },
+    {
+      lottos: [
+        [8, 21, 23, 41, 42, 43],
+        [3, 5, 11, 16, 32, 38],
+        [7, 11, 16, 35, 36, 44],
+        [1, 8, 11, 31, 41, 42],
+        [13, 14, 16, 38, 42, 45],
+        [7, 11, 30, 40, 42, 43],
+        [2, 13, 22, 32, 38, 45],
+        [1, 3, 5, 14, 22, 45],
+      ],
+      result: '62.5',
+    },
+  ])('당첨돈 수에 따라서 수익률을 반환한다.', ({ lottos, result }) => {
+    statistics.findMatch(lottos);
+    expect(statistics.getYield(lottos.length * 1000)).toEqual(result);
+  });
 });
