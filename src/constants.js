@@ -73,5 +73,6 @@ export const ERROR = Object.freeze({
   STORE: {
     MONEY_TYPE: '[ERROR] : 구매 비용이 잘못되었습니다.',
     MIN_COST: `[ERROR] : 구매시 ${LOTTO.COST}이상의 값이 필요합니다.`,
+    MACHINE: '[ERROR] : 로또 머신에는 1이상의 개수를 전달해야 합니다.',
   },
 });

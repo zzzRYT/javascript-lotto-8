@@ -1,5 +1,7 @@
 import { MissionUtils } from '@woowacourse/mission-utils';
 
+import { ERROR } from '../constants.js';
+
 class LottoMachine {
   getLottery(count) {
     validationLottoMachine().count(count);
@@ -19,9 +21,7 @@ class LottoMachine {
 function validationLottoMachine() {
   const count = (num) => {
     if (num <= 0) {
-      throw new Error(
-        '[ERROR] : 로또 머신에는 1이상의 개수를 전달해야 합니다.'
-      );
+      throw new Error(ERROR.STORE.MACHINE);
     }
   };
 
