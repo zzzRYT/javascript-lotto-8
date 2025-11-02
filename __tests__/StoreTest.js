@@ -25,4 +25,11 @@ describe('Store 클래스 테스트', () => {
       expect(() => store.purchaseLotto(cost).toThrow('[ERROR]'));
     }
   );
+
+  test.each([{ cost: 100001 }, { cost: 500000 }])(
+    '로또 구매는 한 번에 100,000원 이상 불가능하다. : $cost',
+    ({ cost }) => {
+      expect(() => store.purchaseLotto(cost).toThrow('[ERROR]'));
+    }
+  );
 });

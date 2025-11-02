@@ -1,3 +1,5 @@
+import { generatedMoneyUnit } from './utils.js';
+
 /**
  * Input 클래스 관련 상수
  */
@@ -10,14 +12,14 @@ export const INPUT = {
 /**
  * Output 클래스 관련 상수
  */
-export const OUTPUT = {
+export const OUTPUT = Object.freeze({
   PURCHASED: {
     COUNT: '개를 구매했습니다.',
   },
   STATISTICS: {
     TITLE: '당첨 통계\n---',
   },
-};
+});
 
 /**
  * 공통 상수
@@ -28,7 +30,8 @@ export const SEPARATOR = ',';
  * Store 클래스 관련 상수
  */
 export const LOTTO = Object.freeze({
-  COST: 1000,
+  MIN_COST: 1000,
+  MAX_COST: 100000,
 });
 
 /**
@@ -72,7 +75,10 @@ export const ERROR = Object.freeze({
   },
   STORE: {
     MONEY_TYPE: '[ERROR] : 구매 비용이 잘못되었습니다.',
-    MIN_COST: `[ERROR] : 구매시 ${LOTTO.COST}이상의 값이 필요합니다.`,
+    MIN_COST: `[ERROR] : 구매시 ${LOTTO.MIN_COST}이상의 값이 필요합니다.`,
+    MAX_COST: `[ERROR] : 한 번에 100개(${generatedMoneyUnit(
+      LOTTO.MAX_COST
+    )}원)까지만 구매 가능합니다.`,
     MACHINE: '[ERROR] : 로또 머신에는 1이상의 개수를 전달해야 합니다.',
   },
 });

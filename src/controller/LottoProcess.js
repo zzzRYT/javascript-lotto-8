@@ -10,12 +10,10 @@ import Statistics from '../domain/Statistics.js';
 class LottoProcess {
   constructor() {
     this.store = new Store();
-    this.context = null;
   }
 
   async start() {
-    if (!this.context) this.context = {};
-    const context = this.context;
+    const context = {};
 
     const steps = [
       {
