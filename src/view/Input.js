@@ -1,6 +1,6 @@
 import { Console } from '@woowacourse/mission-utils';
 
-import { ERROR, INPUT } from '../constants.js';
+import { ERROR, INPUT, SEPARATOR } from '../constants.js';
 import { isPositiveInteger } from '../utils.js';
 class Input {
   static async userMoney() {
@@ -11,7 +11,9 @@ class Input {
 
   static async DrawWinningNumbers() {
     const winners = await Console.readLineAsync(INPUT.WINNER);
-    const winnerNumbers = winners.split(',').map((num) => Number(num.trim()));
+    const winnerNumbers = winners
+      .split(SEPARATOR)
+      .map((num) => Number(num.trim()));
     validationWinnerInput().numbers(winnerNumbers);
     return winnerNumbers;
   }

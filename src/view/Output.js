@@ -2,7 +2,7 @@ import { Console } from '@woowacourse/mission-utils';
 
 import { generatedMoneyUnit } from '../utils.js';
 
-import { OUTPUT, WINNER } from '../constants.js';
+import { OUTPUT, SEPARATOR, WINNER } from '../constants.js';
 
 class Output {
   static purchasedLottosCount(lottos) {
@@ -12,7 +12,8 @@ class Output {
 
   static purchasedLottos(lottos) {
     lottos.forEach((lotto) => {
-      Console.print(`[${lotto.join(', ')}]`);
+      const sortedLotto = lotto.sort((a, b) => a - b);
+      Console.print(`[${sortedLotto.join(SEPARATOR + ' ')}]`);
     });
   }
 

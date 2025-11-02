@@ -20,6 +20,11 @@ export const OUTPUT = {
 };
 
 /**
+ * 공통 상수
+ */
+export const SEPARATOR = ',';
+
+/**
  * Store 클래스 관련 상수
  */
 export const LOTTO = Object.freeze({
