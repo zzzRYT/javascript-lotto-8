@@ -44,7 +44,12 @@ class LottoProcess {
         fn: async () => {
           context.bounce = await Input.DrawBounce();
           context.addBounceLotto = context.lotto.getBounce(context.bounce);
-
+          Output.newLine();
+        },
+      },
+      {
+        name: 'showStatistics',
+        fn: async () => {
           const statistics = new Statistics(
             context.lotto.getLotto(),
             context.addBounceLotto
@@ -54,7 +59,6 @@ class LottoProcess {
           const winningGroup = context.statistics.getWinningGroup();
           const totalPrizePercent = context.statistics.getYield(context.money);
 
-          Output.newLine();
           Output.winningStatistics(winningGroup);
           Output.totalYield(totalPrizePercent);
         },
