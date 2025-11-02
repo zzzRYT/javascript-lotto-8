@@ -1,4 +1,4 @@
-import { WINNER } from '../constants.js';
+import { BOUNCE, WINNER } from '../constants.js';
 
 class Statistics {
   #winner;
@@ -11,7 +11,7 @@ class Statistics {
       [3, 0],
       [4, 0],
       [5, 0],
-      [7, 0],
+      [BOUNCE.SYMBOL, 0],
       [6, 0],
     ]);
   }
@@ -24,7 +24,7 @@ class Statistics {
     lottos.forEach((lotto) => {
       const count = this.getMatchNumbersCount(lotto);
       if (this.#isSecondWithBounce(count, lotto)) {
-        this.#setWinningGroup(7);
+        this.#setWinningGroup(BOUNCE.SYMBOL);
       } else if (count >= WINNER.FINAL_RANK) {
         this.#setWinningGroup(count);
       }
@@ -53,7 +53,7 @@ class Statistics {
   }
 
   #isSecondWithBounce(count, lotto) {
-    return count === 5 && lotto.includes(this.#bounce);
+    return count === BOUNCE.COUNT && lotto.includes(this.#bounce);
   }
 }
 

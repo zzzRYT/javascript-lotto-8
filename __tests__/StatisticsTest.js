@@ -1,3 +1,4 @@
+import { BOUNCE } from '../src/constants';
 import Statistics from '../src/domain/Statistics';
 
 describe('Statistics 클래스 테스트', () => {
@@ -33,7 +34,7 @@ describe('Statistics 클래스 테스트', () => {
         [3, 1],
         [4, 0],
         [5, 0],
-        [7, 0],
+        [BOUNCE.SYMBOL, 0],
         [6, 1],
       ],
     },
@@ -45,7 +46,7 @@ describe('Statistics 클래스 테스트', () => {
         [3, 0],
         [4, 0],
         [5, 0],
-        [7, 1],
+        [BOUNCE.SYMBOL, 1],
         [6, 0],
       ],
     },

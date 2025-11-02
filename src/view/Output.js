@@ -2,7 +2,7 @@ import { Console } from '@woowacourse/mission-utils';
 
 import { generatedMoneyUnit } from '../utils.js';
 
-import { OUTPUT, SEPARATOR, WINNER } from '../constants.js';
+import { BOUNCE, OUTPUT, SEPARATOR, WINNER } from '../constants.js';
 
 class Output {
   static purchasedLottosCount(lottos) {
@@ -29,8 +29,10 @@ class Output {
   }
 
   static eachCountPrint(to, prize, count) {
-    if (to === 7) {
-      Console.print(`5개 일치, 보너스 볼 일치 (${prize}원) - ${count}개`);
+    if (to === BOUNCE.SYMBOL) {
+      Console.print(
+        `${BOUNCE.COUNT}개 일치, 보너스 볼 일치 (${prize}원) - ${count}개`
+      );
       return;
     }
     Console.print(`${to}개 일치 (${prize}원) - ${count}개`);

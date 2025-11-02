@@ -34,6 +34,10 @@ export const LOTTO = Object.freeze({
 /**
  * Statistics 클래서 관련 상수
  */
+export const BOUNCE = {
+  COUNT: 5,
+  SYMBOL: Symbol.for('BOUNCE'),
+};
 export const WINNER = Object.freeze({
   FINAL_RANK: 3,
   RANK: {
@@ -41,7 +45,7 @@ export const WINNER = Object.freeze({
     4: 'THIRD',
     5: 'SECOND',
     6: 'FIRST',
-    7: 'BOUNCE',
+    [BOUNCE.SYMBOL]: 'BOUNCE',
   },
   PRIZE: {
     FOURTH: 5000,
