@@ -2,6 +2,7 @@ import { Console } from '@woowacourse/mission-utils';
 
 import { ERROR, INPUT, SEPARATOR } from '../constants.js';
 import { isPositiveInteger } from '../utils.js';
+
 class Input {
   static async userMoney() {
     const money = await Console.readLineAsync(INPUT.MONEY);
@@ -18,10 +19,10 @@ class Input {
     return winnerNumbers;
   }
 
-  static async DrawBounce() {
-    const bounce = await Console.readLineAsync(INPUT.BOUNCE);
-    validationBounceInput().number(Number(bounce));
-    return Number(bounce);
+  static async DrawBonus() {
+    const bonus = await Console.readLineAsync(INPUT.BONUS);
+    validationBonusInput().number(Number(bonus));
+    return Number(bonus);
   }
 }
 
@@ -47,10 +48,10 @@ function validationWinnerInput() {
   return { numbers };
 }
 
-function validationBounceInput() {
-  const number = (bounce) => {
-    if (!isPositiveInteger(bounce)) {
-      throw new Error(ERROR.INPUT.BOUNCE);
+function validationBonusInput() {
+  const number = (bonus) => {
+    if (!isPositiveInteger(bonus)) {
+      throw new Error(ERROR.INPUT.BONUS);
     }
   };
 

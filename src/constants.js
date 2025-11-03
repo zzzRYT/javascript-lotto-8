@@ -6,7 +6,7 @@ import { generatedMoneyUnit } from './utils.js';
 export const INPUT = {
   MONEY: '구매금액을 입력해 주세요.\n',
   WINNER: '당첨 번호를 입력해 주세요.\n',
-  BOUNCE: '보너스 번호를 입력해 주세요.\n',
+  BONUS: '보너스 번호를 입력해 주세요.\n',
 };
 
 /**
@@ -37,9 +37,9 @@ export const LOTTO = Object.freeze({
 /**
  * Statistics 클래서 관련 상수
  */
-export const BOUNCE = {
+export const BONUS = {
   COUNT: 5,
-  SYMBOL: Symbol.for('BOUNCE'),
+  SYMBOL: Symbol.for('BONUS'),
 };
 export const WINNER = Object.freeze({
   FINAL_RANK: 3,
@@ -48,14 +48,14 @@ export const WINNER = Object.freeze({
     4: 'THIRD',
     5: 'SECOND',
     6: 'FIRST',
-    [BOUNCE.SYMBOL]: 'BOUNCE',
+    [BONUS.SYMBOL]: 'BONUS',
   },
   PRIZE: {
     FOURTH: 5000,
     THIRD: 50000,
     SECOND: 1500000,
     FIRST: 2000000000,
-    BOUNCE: 30000000,
+    BONUS: 30000000,
   },
 });
 
@@ -66,7 +66,7 @@ export const ERROR = Object.freeze({
   INPUT: {
     COST: '[ERROR] : 구매 비용을 잘못 입력하셨습니다.',
     WINNER_NUMBERS: '[ERROR] : 우승 번호는 1~45사이 숫자여야 합니다.',
-    BOUNCE: '[ERROR] : 보너스는 숫자여야 합니다.',
+    BONUS: '[ERROR] : 보너스는 숫자여야 합니다.',
   },
   LOTTO: {
     LENGTH: '[ERROR] : 로또 번호는 6개여야 합니다.',

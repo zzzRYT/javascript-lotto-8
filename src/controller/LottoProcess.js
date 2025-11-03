@@ -38,10 +38,10 @@ class LottoProcess {
         },
       },
       {
-        name: 'getBounce',
+        name: 'getBonus',
         fn: async () => {
-          context.bounce = await Input.DrawBounce();
-          context.addBounceLotto = context.lotto.getBounce(context.bounce);
+          context.bonus = await Input.DrawBonus();
+          context.addBonusLotto = context.lotto.getBonus(context.bonus);
           Output.newLine();
         },
       },
@@ -50,7 +50,7 @@ class LottoProcess {
         fn: async () => {
           const statistics = new Statistics(
             context.lotto.getLotto(),
-            context.addBounceLotto
+            context.addBonusLotto
           );
           statistics.findMatch(context.lottos);
           context.statistics = statistics;

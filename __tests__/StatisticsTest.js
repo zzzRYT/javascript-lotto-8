@@ -1,4 +1,4 @@
-import { BOUNCE } from '../src/constants';
+import { BONUS } from '../src/constants';
 import Statistics from '../src/domain/Statistics';
 
 describe('Statistics 클래스 테스트', () => {
@@ -34,19 +34,19 @@ describe('Statistics 클래스 테스트', () => {
         [3, 1],
         [4, 0],
         [5, 0],
-        [BOUNCE.SYMBOL, 0],
+        [BONUS.SYMBOL, 0],
         [6, 1],
       ],
     },
     {
       description:
-        '당점 중 5개 가 일치하고, 보너스가 일치하면 7(보너스)를 추가한다.',
+        '당점 중 5개 가 일치하고, 보너스가 일치하면 보너스를 추가한다.',
       lottos: [[1, 2, 3, 4, 5, 7]],
       result: [
         [3, 0],
         [4, 0],
         [5, 0],
-        [BOUNCE.SYMBOL, 1],
+        [BONUS.SYMBOL, 1],
         [6, 0],
       ],
     },
@@ -77,7 +77,7 @@ describe('Statistics 클래스 테스트', () => {
       ],
       result: 62.5,
     },
-  ])('당첨돈 수에 따라서 수익률을 반환한다.', ({ lottos, result }) => {
+  ])('당첨된 수에 따라서 수익률을 반환한다.', ({ lottos, result }) => {
     statistics.findMatch(lottos);
     expect(statistics.getYield(lottos.length * 1000)).toEqual(result);
   });

@@ -27,11 +27,11 @@ describe('로또 클래스 테스트', () => {
 
   test('보너스 번호가 로또 번호와 중복된 숫자면 예외가 발생한다.', () => {
     const lotto = new Lotto([1, 2, 3, 4, 5, 6]);
-    expect(() => lotto.getBounce(5)).toThrow('[ERROR]');
+    expect(() => lotto.getBonus(5)).toThrow('[ERROR]');
   });
 
   test('보너스 번호가 1 ~ 45 사이 수가 아니면 예외가 발생한다.', () => {
     const lotto = new Lotto([1, 2, 3, 4, 5, 6]);
-    expect(() => lotto.getBounce(50)).toThrow('[ERROR]');
+    expect(() => lotto.getBonus(50)).toThrow('[ERROR]');
   });
 });

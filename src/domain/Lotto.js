@@ -14,10 +14,10 @@ class Lotto {
     return this.#numbers;
   }
 
-  getBounce(num) {
-    const addBounceLotto = [...this.#numbers, num];
-    validationLotto().duplicated(addBounceLotto);
-    validationLotto().range(addBounceLotto);
+  getBonus(num) {
+    const addBonusLotto = [...this.#numbers, num];
+    validationLotto().duplicated(addBonusLotto);
+    validationLotto().range(addBonusLotto);
     return num;
   }
 }

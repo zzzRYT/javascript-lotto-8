@@ -1,17 +1,17 @@
-import { BOUNCE, WINNER } from '../constants.js';
+import { BONUS, WINNER } from '../constants.js';
 
 class Statistics {
   #winner;
-  #bounce;
+  #bonus;
   #winningGroup;
-  constructor(winner, bonce) {
+  constructor(winner, bonus) {
     this.#winner = winner;
-    this.#bounce = bonce;
+    this.#bonus = bonus;
     this.#winningGroup = new Map([
       [3, 0],
       [4, 0],
       [5, 0],
-      [BOUNCE.SYMBOL, 0],
+      [BONUS.SYMBOL, 0],
       [6, 0],
     ]);
   }
@@ -23,8 +23,8 @@ class Statistics {
   findMatch(lottos) {
     lottos.forEach((lotto) => {
       const count = this.getMatchNumbersCount(lotto);
-      if (this.#isSecondWithBounce(count, lotto)) {
-        this.#setWinningGroup(BOUNCE.SYMBOL);
+      if (this.#isSecondWithBonus(count, lotto)) {
+        this.#setWinningGroup(BONUS.SYMBOL);
       } else if (count >= WINNER.FINAL_RANK) {
         this.#setWinningGroup(count);
       }
@@ -52,8 +52,8 @@ class Statistics {
     this.#winningGroup.set(count, currentCount + 1);
   }
 
-  #isSecondWithBounce(count, lotto) {
-    return count === BOUNCE.COUNT && lotto.includes(this.#bounce);
+  #isSecondWithBonus(count, lotto) {
+    return count === BONUS.COUNT && lotto.includes(this.#bonus);
   }
 }
 
