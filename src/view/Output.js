@@ -2,7 +2,7 @@ import { Console } from '@woowacourse/mission-utils';
 
 import { generatedMoneyUnit } from '../utils.js';
 
-import { OUTPUT, SEPARATOR, WINNER } from '../constants.js';
+import { BONUS, OUTPUT, SEPARATOR, WINNER } from '../constants.js';
 
 class Output {
   static purchasedLottosCount(lottos) {
